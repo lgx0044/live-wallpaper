@@ -1,0 +1,9 @@
+{
+  "name": "getStatus",
+  "version": "1.0.0",
+  "description": "Query conversion task status",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest"
+  }
+}

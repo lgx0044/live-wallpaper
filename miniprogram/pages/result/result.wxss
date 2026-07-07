@@ -1,0 +1,74 @@
+/* pages/result/result.wxss */
+
+.result-page {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 视频预览区 */
+.preview-area {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 16px;
+  background: black;
+  box-shadow: 0 4px 20px rgba(108, 99, 255, 0.15);
+}
+
+.result-video {
+  width: 100%;
+  height: 380px;
+  display: block;
+}
+
+/* 信息卡片 */
+.info-area {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.info-row {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* 操作区 */
+.action-area {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.save-btn {
+  height: 52px;
+  font-size: 17px;
+  border-radius: 26px;
+}
+
+/* 使用指南 */
+.guide {
+  display: flex;
+  flex-direction: column;
+}
+
+.guide-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.guide-step {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 2;
+  padding-left: 4px;
+}
+
+.guide-step::before {
+  content: "";
+}

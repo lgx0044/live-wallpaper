@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/upload/upload",
+    "pages/processing/processing",
+    "pages/result/result"
+  ],
+  "window": {
+    "navigationBarTitleText": "live动态壁纸",
+    "navigationBarBackgroundColor": "#1a1a2e",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#0f0f23"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

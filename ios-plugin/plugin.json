@@ -1,0 +1,13 @@
+{
+  "publicComponents": {
+    "live-photo-reader": "components/live-photo-reader/live-photo-reader"
+  },
+  "pages": [],
+  "main": "index.js",
+  "plugins": {
+    "live-photo-reader": {
+      "version": "1.0.0",
+      "provider": "wxf4be5885beeeb4f2"
+    }
+  }
+}

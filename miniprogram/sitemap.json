@@ -1,0 +1,20 @@
+{
+  "rules": [
+    {
+      "page": "pages/index/index",
+      "path": "**/*"
+    },
+    {
+      "page": "pages/upload/upload",
+      "path": "**/*"
+    },
+    {
+      "page": "pages/processing/processing",
+      "path": "**/*"
+    },
+    {
+      "page": "pages/result/result",
+      "path": "**/*"
+    }
+  ]
+}

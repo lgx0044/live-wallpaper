@@ -1,0 +1,78 @@
+<!-- pages/upload/upload.wxml -->
+<view class="page-container upload-page">
+  <text class="title">选择实况照片</text>
+  <text class="subtitle">iOS 专用 · 原生读取 Live Photo 原始数据</text>
+
+  <!-- 插件状态 -->
+  <view class="plugin-status">
+    <text class="plugin-badge {{usingPlugin ? 'badge-active' : 'badge-fallback'}}">
+      {{usingPlugin ? '📱 原生插件模式 · 读取完整画质' : '🔄 兼容模式 · 部分画质'}}
+    </text>
+  </view>
+
+  <!-- 文件选择区域 -->
+  <view class="picker-area" bindtap="onChooseLivePhoto">
+    <block wx:if="{{!selected}}">
+      <view class="picker-empty">
+        <text class="picker-icon">🖼️</text>
+        <text class="picker-hint">轻点选择 Live Photo</text>
+        <text class="picker-subhint">通过原生插件穿透相册，直接读取原始 HEIC + MOV</text>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="picker-preview">
+        <video
+          class="preview-video"
+          src="{{videoFile.tempFilePath}}"
+          autoplay="{{false}}"
+          controls="{{false}}"
+          muted="{{true}}"
+          objectFit="cover"
+          show-center-play-btn="{{true}}"
+        />
+        <view class="file-info-bar">
+          <text class="file-info-text">{{videoInfoText}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 错误信息 -->
+  <text class="error-text" wx:if="{{errorMessage}}">{{errorMessage}}</text>
+
+  <!-- 转换参数 -->
+  <view class="config-section" wx:if="{{selected}}">
+    <text class="section-title">转换参数</text>
+    <view class="preset-list">
+      <view
+        class="preset-item {{selectedPreset === 'standard' ? 'preset-active' : ''}}"
+        data-preset="standard"
+        bindtap="onSelectPreset"
+      >
+        <text class="preset-name">标准</text>
+        <text class="preset-desc">1080p · 60fps</text>
+      </view>
+      <view
+        class="preset-item {{selectedPreset === 'high' ? 'preset-active' : ''}}"
+        data-preset="high"
+        bindtap="onSelectPreset"
+      >
+        <text class="preset-name">高质量</text>
+        <text class="preset-desc">1080p · 高品质</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="action-area" wx:if="{{selected}}">
+    <button
+      class="btn-primary"
+      disabled="{{isUploading}}"
+      loading="{{isUploading}}"
+      bindtap="onStartConversion"
+    >
+      {{isUploading ? '上传中...' : '开始转换'}}
+    </button>
+    <button class="btn-secondary" bindtap="onReset">重新选择</button>
+  </view>
+</view>

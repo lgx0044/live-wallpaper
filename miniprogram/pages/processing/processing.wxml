@@ -1,0 +1,36 @@
+<!-- pages/processing/processing.wxml -->
+<view class="page-container processing-page">
+  <!-- 状态图标 -->
+  <view class="status-area">
+    <block wx:if="{{status === 'failed'}}">
+      <view class="status-icon status-fail">✕</view>
+      <text class="status-title">转换失败</text>
+      <text class="status-desc">{{errorMessage}}</text>
+      <button class="btn-primary retry-btn" bindtap="onRetry">重试</button>
+    </block>
+
+    <block wx:else>
+      <view class="spinner-ring">
+        <view class="spinner-circle"></view>
+      </view>
+      <text class="status-title" wx:if="{{status === 'downloading'}}">正在下载...</text>
+      <text class="status-title" wx:if="{{status === 'processing'}}">正在转换...</text>
+      <text class="status-title" wx:if="{{status === 'uploading'}}">准备中...</text>
+
+      <!-- 进度条 -->
+      <view class="progress-bar">
+        <view class="progress-fill" style="width: {{progressPercent}}%;"></view>
+      </view>
+
+      <!-- 已用时间 -->
+      <text class="elapsed-time">已用 {{elapsed}} 秒</text>
+    </block>
+  </view>
+
+  <!-- 提示 -->
+  <view class="tips-area" wx:if="{{status !== 'failed'}}">
+    <text class="tips-title">💡 提示</text>
+    <text class="tips-text">请保持小程序在前台运行，不要切换后台</text>
+    <text class="tips-text">转换时间取决于视频时长和选择的画质</text>
+  </view>
+</view>

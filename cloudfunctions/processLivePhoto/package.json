@@ -1,0 +1,9 @@
+{
+  "name": "processLivePhoto",
+  "version": "1.0.0",
+  "description": "Convert iPhone Live Photo to wallpaper-compatible H.264 MP4",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest"
+  }
+}

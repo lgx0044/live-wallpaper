@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <!-- 深色星空背景 -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0c29"/>
+      <stop offset="50%" style="stop-color:#302b63"/>
+      <stop offset="100%" style="stop-color:#24243e"/>
+    </linearGradient>
+
+    <!-- 霓虹紫 -->
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#c084fc"/>
+      <stop offset="100%" style="stop-color:#818cf8"/>
+    </linearGradient>
+
+    <!-- 亮蓝 -->
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#38bdf8"/>
+      <stop offset="100%" style="stop-color:#818cf8"/>
+    </linearGradient>
+
+    <!-- 热粉橙 -->
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fb923c"/>
+      <stop offset="100%" style="stop-color:#facc15"/>
+    </linearGradient>
+
+    <!-- 翠绿 -->
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#34d399"/>
+      <stop offset="100%" style="stop-color:#22d3ee"/>
+    </linearGradient>
+
+    <!-- 粉色 -->
+    <linearGradient id="pinkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f472b6"/>
+      <stop offset="100%" style="stop-color:#c084fc"/>
+    </linearGradient>
+
+    <filter id="glowPurple">
+      <feDropShadow dx="0" dy="0" stdDeviation="12" flood-color="#a855f7" flood-opacity="0.8"/>
+    </filter>
+    <filter id="glowBlue">
+      <feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#38bdf8" flood-opacity="0.6"/>
+    </filter>
+    <filter id="glowOrange">
+      <feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#fb923c" flood-opacity="0.7"/>
+    </filter>
+    <filter id="phoneShadow">
+      <feDropShadow dx="0" dy="10" stdDeviation="20" flood-color="#a855f7" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect x="0" y="0" width="1024" height="1024" rx="180" ry="180" fill="url(#bgGrad)"/>
+
+  <!-- 装饰光晕 -->
+  <circle cx="170" cy="180" r="280" fill="#c084fc" opacity="0.07"/>
+  <circle cx="854" cy="180" r="240" fill="#38bdf8" opacity="0.06"/>
+  <circle cx="512" cy="854" r="300" fill="#fb923c" opacity="0.05"/>
+
+  <!-- ============================================ -->
+  <!-- 左侧：壁纸图标（超大） -->
+  <!-- ============================================ -->
+  <g transform="translate(240,460)">
+    <!-- 画框 -->
+    <rect x="-100" y="-128" width="200" height="256" rx="24" ry="24" fill="rgba(255,255,255,0.05)" stroke="#4a4a7a" stroke-width="3.5"/>
+
+    <!-- 画面 -->
+    <rect x="-90" y="-118" width="180" height="236" rx="18" ry="18" fill="#151530"/>
+
+    <!-- 天空 -->
+    <rect x="-90" y="-118" width="180" height="150" rx="18" ry="18" fill="url(#blueGrad)" opacity="0.2"/>
+
+    <!-- 太阳 -->
+    <circle cx="40" cy="-60" r="28" fill="url(#orangeGrad)" filter="url(#glowOrange)"/>
+
+    <!-- 山脉背景 -->
+    <path d="M -90,-10 L -40,-70 L -5,-30 L 35,-60 L 70,-15 L 90,-35 L 90,40 L -90,40 Z" fill="url(#purpleGrad)" opacity="0.65"/>
+    <!-- 山脉前景 -->
+    <path d="M -90,25 L -50,-15 L -15,8 L 25,-10 L 55,15 L 90,-5 L 90,60 L -90,60 Z" fill="url(#pinkGrad)" opacity="0.45"/>
+
+    <!-- 地面 -->
+    <rect x="-90" y="55" width="180" height="63" rx="0" ry="0" fill="#0a0a1a" opacity="0.6"/>
+
+    <!-- 草地 -->
+    <path d="M -90,55 Q -60,35 -35,50 Q -10,30 20,45 Q 45,25 72,40 Q 82,32 90,38 L 90,70 L -90,70 Z" fill="url(#greenGrad)" opacity="0.5"/>
+  </g>
+
+  <!-- ============================================ -->
+  <!-- 中间：手机（超大） -->
+  <!-- ============================================ -->
+  <g filter="url(#phoneShadow)" transform="translate(512,455)">
+    <!-- 手机壳 -->
+    <rect x="-175" y="-250" width="350" height="500" rx="56" ry="56" fill="#2a2a4a" stroke="#5a5a8a" stroke-width="4.5"/>
+
+    <!-- 屏幕 -->
+    <rect x="-160" y="-235" width="320" height="470" rx="42" ry="42" fill="#0f0f25"/>
+
+    <!-- 灵动岛 -->
+    <rect x="-65" y="-222" width="130" height="30" rx="15" ry="15" fill="#050510"/>
+
+    <!-- 播放按钮 -->
+    <g transform="translate(0,25)">
+      <!-- 外发光圈 -->
+      <circle cx="0" cy="0" r="85" fill="url(#purpleGrad)" opacity="0.1" filter="url(#glowPurple)"/>
+      <circle cx="0" cy="0" r="70" fill="url(#purpleGrad)" opacity="0.18"/>
+
+      <!-- 大播放三角 -->
+      <polygon points="-38,64 64,0 -38,-64" fill="url(#purpleGrad)" filter="url(#glowPurple)"/>
+
+      <!-- 动态弧线 -->
+      <path d="M -85,-25 A 95,95 0 0,1 85,-25" fill="none" stroke="url(#blueGrad)" stroke-width="4.5" stroke-linecap="round" opacity="0.55"/>
+      <path d="M -90,30 A 100,100 0 0,0 90,30" fill="none" stroke="url(#orangeGrad)" stroke-width="4" stroke-linecap="round" opacity="0.45"/>
+
+      <!-- 闪烁光点 -->
+      <circle cx="-70" cy="-45" r="6" fill="#c084fc" opacity="0.9">
+        <animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="68" cy="-52" r="5" fill="#38bdf8" opacity="0.85">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="2.2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="-60" cy="62" r="5" fill="#34d399" opacity="0.8">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="2.6s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="62" cy="55" r="4.5" fill="#fb923c" opacity="0.8">
+        <animate attributeName="opacity" values="0.3;0.9;0.3" dur="2s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+
+    <!-- 底栏指示条 -->
+    <rect x="-55" y="200" width="110" height="5" rx="2.5" ry="2.5" fill="#4a4a6a"/>
+  </g>
+
+  <!-- ============================================ -->
+  <!-- 右侧：转换箭头（超大） -->
+  <!-- ============================================ -->
+  <g transform="translate(788,455)">
+    <!-- 外圈光晕 -->
+    <circle cx="0" cy="0" r="85" fill="url(#orangeGrad)" opacity="0.07" filter="url(#glowOrange)"/>
+
+    <!-- 圆形按钮 -->
+    <circle cx="0" cy="0" r="62" fill="rgba(249,115,22,0.1)" stroke="url(#orangeGrad)" stroke-width="3"/>
+
+    <!-- 箭头 -->
+    <g transform="translate(0,5)">
+      <polygon points="-20,44 44,0 -20,-44" fill="url(#orangeGrad)" filter="url(#glowOrange)"/>
+      <line x1="-40" y1="0" x2="20" y2="0" stroke="url(#orangeGrad)" stroke-width="7" stroke-linecap="round"/>
+    </g>
+
+    <!-- 星点 -->
+    <circle cx="-38" cy="-38" r="6" fill="#facc15" opacity="0.9">
+      <animate attributeName="opacity" values="0.2;1;0.2" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="36" cy="-40" r="5" fill="#38bdf8" opacity="0.85">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="38" cy="40" r="5.5" fill="#c084fc" opacity="0.85">
+      <animate attributeName="opacity" values="0.3;0.9;0.3" dur="2.4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="-36" cy="38" r="4" fill="#34d399" opacity="0.7">
+      <animate attributeName="opacity" values="0.2;0.8;0.2" dur="1.7s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

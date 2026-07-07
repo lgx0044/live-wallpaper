@@ -1,0 +1,53 @@
+<!-- pages/index/index.wxml -->
+<view class="page-container index-page">
+  <!-- Hero 区域 -->
+  <view class="hero">
+    <view class="logo-area">
+      <view class="logo-icon">
+        <text class="logo-text">动态</text>
+      </view>
+    </view>
+    <text class="hero-title">live动态壁纸</text>
+    <text class="hero-subtitle">将 iPhone Live Photo 转换为动态壁纸</text>
+  </view>
+
+  <!-- 功能说明 -->
+  <view class="features">
+    <view class="feature-item">
+      <view class="feature-icon">📱</view>
+      <view class="feature-content">
+        <text class="feature-title">选择 Live Photo</text>
+        <text class="feature-desc">从相册选择你的 iPhone 实况照片</text>
+      </view>
+    </view>
+    <view class="feature-arrow">↓</view>
+
+    <view class="feature-item">
+      <view class="feature-icon">🔄</view>
+      <view class="feature-content">
+        <text class="feature-title">自动转换</text>
+        <text class="feature-desc">转为 1080p 60fps 动态壁纸格式</text>
+      </view>
+    </view>
+    <view class="feature-arrow">↓</view>
+
+    <view class="feature-item">
+      <view class="feature-icon">💾</view>
+      <view class="feature-content">
+        <text class="feature-title">保存到相册</text>
+        <text class="feature-desc">随时设置为动态壁纸</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 开始按钮 -->
+  <button class="btn-primary start-btn" bindtap="onStart">
+    <text>开始转换</text>
+  </button>
+
+  <!-- 底部信息 -->
+  <view class="footer-info">
+    <text class="footer-text">支持 iPhone 6s 及更新机型</text>
+    <text class="footer-text">文件最大 30MB · 时长最 30 秒</text>
+  </view>
+</view>

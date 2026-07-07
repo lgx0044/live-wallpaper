@@ -1,0 +1,51 @@
+<!-- pages/result/result.wxml -->
+<view class="page-container result-page">
+  <text class="title">转换完成 🎉</text>
+  <text class="subtitle">预览并保存到相册</text>
+
+  <!-- 视频预览 -->
+  <view class="preview-area">
+    <video
+      class="result-video"
+      src="{{tempFilePath}}"
+      autoplay="{{true}}"
+      loop="{{true}}"
+      muted="{{true}}"
+      controls="{{false}}"
+      objectFit="cover"
+      show-play-btn="{{false}}"
+      show-center-play-btn="{{false}}"
+      enable-play-gesture="{{false}}"
+    />
+  </view>
+
+  <!-- 信息 -->
+  <view class="info-area card" wx:if="{{resultInfo}}">
+    <text class="info-row">分辨率：1080 × 1920</text>
+    <text class="info-row">帧率：60 FPS</text>
+    <text class="info-row">编码：H.264（兼容所有设备）</text>
+    <text class="info-row" wx:if="{{resultInfo.duration}}">时长：{{resultInfo.duration}}</text>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="action-area">
+    <button
+      class="btn-primary save-btn"
+      disabled="{{isSaving}}"
+      loading="{{isSaving}}"
+      bindtap="onSaveToAlbum"
+    >
+      {{isSaving ? '保存中...' : '💾 保存到相册'}}
+    </button>
+    <button class="btn-secondary" bindtap="onConvertAnother">🔄 再转一个</button>
+  </view>
+
+  <!-- 使用说明 -->
+  <view class="guide card">
+    <text class="guide-title">📱 设置为壁纸</text>
+    <text class="guide-step">1. 打开系统「照片」应用</text>
+    <text class="guide-step">2. 找到刚保存的视频</text>
+    <text class="guide-step">3. 点击分享按钮 → 「用作壁纸」</text>
+    <text class="guide-step">4. 选择「动态壁纸」或「透视」</text>
+  </view>
+</view>

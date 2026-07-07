@@ -1,0 +1,83 @@
+# GitHub Actions: 自动编译 iOS LivePhotoReader 插件
+#
+# 无需 Mac！每次 push 代码，GitHub 免费 Mac 云自动编译
+# 生成 LivePhotoReader.framework，在 Actions 页面下载
+#
+# 使用方式：
+#   1. 把项目推到 GitHub
+#   2. 打开仓库 → Actions → Build iOS Plugin → Run workflow
+#   3. 等 3 分钟 → 下载 Artifacts
+#
+
+name: Build iOS Plugin
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'ios-plugin/**'
+  workflow_dispatch:  # 手动触发
+
+jobs:
+  build:
+    runs-on: macos-14  # GitHub 免费 Mac 云（M1 芯片，含 Xcode）
+
+    steps:
+      - name: Checkout 代码
+        uses: actions/checkout@v4
+
+      - name: 显示 Xcode 版本
+        run: |
+          xcodebuild -version
+          swift --version
+
+      - name: 编译 LivePhotoReader.framework（iOS arm64）
+        run: |
+          cd ios-plugin/LivePhotoReader
+
+          # 通过 Swift Package Manager 编译 iOS framework
+          xcodebuild \
+            -scheme LivePhotoReader \
+            -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
+            -configuration Release \
+            clean build \
+            BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
+            SKIP_INSTALL=NO \
+            | xcpretty || xcodebuild -scheme LivePhotoReader -sdk iphoneos -destination 'generic/platform=iOS' -configuration Release clean build
+
+      - name: 打包插件
+        run: |
+          cd ios-plugin
+          mkdir -p dist
+
+          # 查找编译产物
+          BUILD_DIR=$(find ~/Library/Developer/Xcode/DerivedData -name "LivePhotoReader.framework" -path "*/Release-iphoneos/*" | head -1)
+
+          if [ -z "$BUILD_DIR" ]; then
+            # 备用：检查标准路径
+            BUILD_DIR=$(find /Users/runner/Library/Developer/Xcode/DerivedData -name "LivePhotoReader.framework" -path "*/Release-iphoneos/*" | head -1)
+          fi
+
+          if [ -z "$BUILD_DIR" ]; then
+            echo "❌ 找不到编译产物，搜索所有路径..."
+            find /Users -name "LivePhotoReader.framework" -maxdepth 8 2>/dev/null | head -5
+            exit 1
+          fi
+
+          echo "✅ 找到编译产物: $BUILD_DIR"
+          cp -R "$BUILD_DIR" dist/
+
+          cd dist
+          zip -r LivePhotoReader.framework.zip LivePhotoReader.framework
+
+          echo ""
+          echo "✅ 编译完成！"
+          ls -lh LivePhotoReader.framework.zip
+
+      - name: 上传编译产物
+        uses: actions/upload-artifact@v4
+        with:
+          name: LivePhotoReader.framework
+          path: ios-plugin/dist/LivePhotoReader.framework.zip
+          retention-days: 30

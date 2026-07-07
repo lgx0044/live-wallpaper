@@ -1,0 +1,25 @@
+# 项目依赖
+node_modules/
+cloudfunctions/*/node_modules/
+
+# 编译产物
+ios-plugin/LivePhotoReader/build/
+*.framework
+*.framework.zip
+
+# 临时文件
+/tmp/
+*.tmp
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 云开发本地配置
+miniprogram/project.private.config.json
+
+# FFmpeg 二进制（太大，用 Layer 部署）
+ffmpeg-layer/bin/ffmpeg
+
+# 测试输出
+test_output*
