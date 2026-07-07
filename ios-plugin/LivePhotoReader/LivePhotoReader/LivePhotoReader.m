@@ -99,7 +99,7 @@
 - (void)presentPHPickerFrom:(UIViewController *)viewController
                  completion:(LivePhotoPickCompletion)completion API_AVAILABLE(ios(14)) {
 
-    var config = [[PHPickerConfiguration alloc] init];
+    PHPickerConfiguration *config = [[PHPickerConfiguration alloc] init];
     config.preferredAssetRepresentationMode = PHPickerConfigurationAssetRepresentationModeCurrent;
     config.selectionLimit = 1;
     config.filter = [PHPickerFilter livePhotosFilter]; // 只筛选实况照片！

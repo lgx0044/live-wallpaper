@@ -4,7 +4,9 @@
       "Bash(python -c ' *)",
       "Bash(git --version)",
       "Bash(git add *)",
-      "Bash(git commit -m '🎉 init: live动态壁纸 - Live Photo 转动态壁纸小程序 *)"
+      "Bash(git commit -m '🎉 init: live动态壁纸 - Live Photo 转动态壁纸小程序 *)",
+      "Bash(gh repo *)",
+      "Bash(gh run *)"
     ]
   }
 }

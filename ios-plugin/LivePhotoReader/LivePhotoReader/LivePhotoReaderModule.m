@@ -160,7 +160,9 @@
 }
 
 - (UIViewController *)topViewController {
-    UIViewController *top = [UIApplication sharedApplication].keyWindow.rootViewController;
+    UIWindowScene *scene = (UIWindowScene *)[UIApplication sharedApplication].connectedScenes.allObjects.firstObject;
+    UIWindow *window = scene.windows.firstObject;
+    UIViewController *top = window.rootViewController;
     while (top.presentedViewController) {
         top = top.presentedViewController;
     }
